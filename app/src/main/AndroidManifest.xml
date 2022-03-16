@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication" xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+           android:configChanges="keyboardHidden|screenSize|smallestScreenSize|screenLayout|orientation"
+                   android:label="@string/app_name"
+                   android:parentActivityName=".MainActivity"
+                   android:theme="@style/ApplozicTheme"
+                   android:launchMode="singleTask"
+                   tools:node="replace">
+                <!-- Parent activity meta-data to support API level 7+ -->
+                <meta-data
+                           android:name="android.support.PARENT_ACTIVITY"
+                           android:value=".MainActivity" />
+         </activity>
+        <meta-data android:name="com.applozic.application.key"
+           android:value="28b9eeb28915845091fed8f92230b494b" />
+
+       
+        <meta-data android:name="main_folder_name"
+                   android:value="chat" 
+                   tools:node="replace"/> <!-- If you do not set this tag then by default the attachment folder name would be Applozic. Thats why we are using replace node-->
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+                   android:value="AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI" />  <!--Replace with your geo api key from google developer console  --> 
+        <!-- For testing purpose use AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI
+        To disable the location sharing via map add this line ApplozicSetting.getInstance(context).disableLocationSharingViaMap(); in onSuccess of Applozic UserLoginTask -->
+
+         <meta-data android:name="activity.open.on.notification"
+                    tools:node="replace" android:value="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity" /> <!-- NOTE : Do NOT change this value -->
+
+         <meta-data android:name="com.package.name" 
+                   android:value="${applicationId}" /> <!-- NOTE: Do NOT change this, it should remain same i.e 'com.package.name' -->
+
+    </application>
+
+</manifest>
