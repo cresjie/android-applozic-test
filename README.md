@@ -1,0 +1,1 @@
+# android-applozic-test
